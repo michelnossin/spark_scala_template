@@ -10,3 +10,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 )
 
+resolvers += "Spark Packages Repo" at "http://dl.bintray.com/spark-packages/maven"
+
+// Scala 2.12, Spark 2.4+
+libraryDependencies += "MrPowers" % "spark-fast-tests" % "0.17.1-s_2.12"

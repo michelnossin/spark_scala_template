@@ -1,9 +1,14 @@
 package example
 
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.DataFrame
 
 object Sparky {
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit = {
+    startSparkJobAndGetDataFrame()
+  }
+
+  def startSparkJobAndGetDataFrame() : DataFrame = {
     val spark = SparkSession
       .builder()
       .appName("spark_test")
@@ -17,5 +22,7 @@ object Sparky {
     val values = List(List("1", "One") ,List("2", "Two") ,List("3", "Three"),List("4","4")).map(x =>(x(0), x(1)))
     val df = values.toDF
     df.show(2)
+    return df
+
   }
 }
